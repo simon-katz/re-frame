@@ -18,6 +18,12 @@
                                     "package-lock.json"
                                     "resources/public/js"]
 
+  :profiles {:dev {:dependencies [;; Needed for `cider-connect-cljs`
+                                  [cider/cider-nrepl "0.22.3"]
+                                  [cider/piggieback "0.4.1"]]
+                   :repl-options {;; Needed for `cider-connect-cljs`
+                                  :nrepl-middleware [cider.piggieback/wrap-cljs-repl]}}}
+
   :shadow-cljs {:nrepl {:port 8777}
 
                 :builds {:client {:target :browser
